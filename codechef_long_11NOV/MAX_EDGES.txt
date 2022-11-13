@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long 
+#define fifo ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define mod 1000000007
+
+int sol[1000001];
+
+
+
+void solve(){
+    int n,l,k;
+    
+    cin>>n>>l>>k;
+    
+    int check = l+k;
+    if(check<n){
+        //dots exist
+        
+        int d = n- check ;
+        int ans ;
+        if(d>=2){
+        ans = l*k + d*l + d*k + (d*(d-1)/2);}
+        else{
+            ans = l*k + d*l + d*k;
+        }
+        cout<<ans<<'\n';
+    }else{
+        //dots overlap -> remove dots
+        int wrong_dots = check - n;
+        
+        int ans = (l-wrong_dots)*(k-wrong_dots);
+        cout<<ans<<'\n';
+
+    }
+}
+
+ signed main(){
+    fifo
+    
+    
+    int t;cin>>t;
+    while(t--)
+    solve();
+}
